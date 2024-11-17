@@ -7,7 +7,8 @@
 int main() {
   DatabaseServer sserver;
   sserver.run();
-  int port = ix::getFreePort();
-  ix::WebSocketServer server(port);
+  // test code
+  // int port = ix::getFreePort();
+  // ix::WebSocketServer server(port);
   return 0;
 }
