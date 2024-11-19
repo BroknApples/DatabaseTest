@@ -1,11 +1,28 @@
 #ifndef SERVER_DATABASE_HPP
 #define SERVER_DATABASE_HPP
 
-class DatabaseServer {
+#include <ixwebsocket/IXNetSystem.h>
+#include <ixwebsocket/IXHttpServer.h>
+
+#include "shared-parent-database.hpp"
+
+class DatabaseServer : public Database {
  private:
-  bool running_ = true;
+  bool running_;
  public:
-  void run();
+  DatabaseServer() : running_(true) {}
+
+  // Main processing
+  void init() override;
+  void run() override;
+  void cleanup() override;
+
+  // Networking
+  void send() override;
+  void recv() override;
+
+  // Modifiers
+  void doAverage() override;
 };
 
 #endif // SERVER_DATABASE_HPP
